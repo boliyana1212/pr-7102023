@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 data-news-id="<%= data.id %>" id="news-id">INI ADALAH HALAMAN EDIT BERITA</h1>
+    <div class="input-group mb-3 mt-5">
+        <span class="input-group-text" >Title</span>
+        <input type="text" id="title-update" class="form-control update-data" value="<%= data.title %>"/>
+    </div>
+    <div class="input-group mb-3 mt-2">
+        <span class="input-group-text" >Cover</span>
+        <input type="text" id="cover-update" class="form-control update-data" value="<%= data.cover %>"/>
+    </div>
+    <div class="input-group mb-3 mt-2">
+        <span class="input-group-text" >Author</span>
+        <input type="text" id="author-update" class="form-control update-data" value="<%= data.author %>"/>
+    </div>
+    <span class="input-group-text">Content</span>
+    <div class="input-group mt-2 update-data"  style="height: 50vh;">
+        <textarea class="form-control" id="content-update" aria-label="With textarea"><%= data.content %></textarea>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success mt-3" id="update">Update</button>
+    </div>
+</div>
+

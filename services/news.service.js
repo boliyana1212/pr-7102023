@@ -1,4 +1,4 @@
-const { news, sequelize } = require('../models');
+const { news,comments, sequelize } = require('../models');
 const { QueryTypes } = require('sequelize');
 
 class NewsService {
@@ -13,7 +13,12 @@ class NewsService {
             data = await this.newsModel.findOne({
                 where: {
                     id
-                }
+                },
+                include: [
+                    {
+                        model:comments
+                    }
+                ]
             })
         } else {
             data = await this.newsModel.findAll();
@@ -37,6 +42,14 @@ class NewsService {
         });
         
         return news;
+    }
+
+    async edit(id,data){
+        const {title,cover,author,content} = data
+        const edit = this.newsModel.update({title,cover,author,content},{
+            where : {id}
+        })
+        return edit
     }
 }
 
